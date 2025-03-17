@@ -1,15 +1,40 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:url_launcher/url_launcher.dart';
+import 'package:audioplayers/audioplayers.dart';
 
 const String wspUrl = "2267410216";
 const String facebookUrl = "https://m.facebook.com/FmMonteSanto/";
 const String websiteUrl = "https://www.google.com/";
+UrlSource radioUrl = UrlSource('https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=ice_30876_stream_632117567');
 
-// ignore: must_be_immutable
-class RadioPlayer extends StatelessWidget {
+class RadioPlayer extends StatefulWidget {
   RadioPlayer({super.key});
-  bool isPlaying = true;
+
+  @override
+  _RadioPlayerState createState() => _RadioPlayerState();
+}
+
+class _RadioPlayerState extends State<RadioPlayer> {
+  bool isPlaying = false;
+  final AudioPlayer _audioPlayer = AudioPlayer();
+
+  @override
+  void dispose() {
+    _audioPlayer.dispose();
+    super.dispose();
+  }
+
+  void _togglePlayPause() {
+    if (isPlaying) {
+      _audioPlayer.pause();
+    } else {
+      _audioPlayer.play(radioUrl);
+    }
+    setState(() {
+      isPlaying = !isPlaying;
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -18,7 +43,7 @@ class RadioPlayer extends StatelessWidget {
         //   title: Text('FM Monte Santo'),
         //   centerTitle: true,
         // ),
-      body: Container( //Background App
+      body: Container(
         decoration: const BoxDecoration(
           gradient: LinearGradient(
               begin: Alignment.topRight,
@@ -80,11 +105,11 @@ class RadioPlayer extends StatelessWidget {
                   icon: Icon(Icons.facebook, size: 32,),
                   onPressed: ()=> openUrl(facebookUrl),
                 ),
-                SizedBox(width: 30),
-                IconButton(
-                  icon: Icon(Icons.language_rounded, size: 32,),
-                  onPressed: ()=> openUrl(websiteUrl),
-                ),
+                // SizedBox(width: 30),
+                // IconButton(
+                //   icon: Icon(Icons.language_rounded, size: 32,),
+                //   onPressed: ()=> openUrl(websiteUrl),
+                // ),
               ],
             ),
             ElevatedButton(
@@ -95,7 +120,7 @@ class RadioPlayer extends StatelessWidget {
                 shadowColor: Colors.red,
                 // backgroundColor: Colors.red
               ),
-              onPressed: () {},
+              onPressed: _togglePlayPause,
               child: Icon(
                 isPlaying ? Icons.pause : Icons.play_arrow,
                 size: 50,
