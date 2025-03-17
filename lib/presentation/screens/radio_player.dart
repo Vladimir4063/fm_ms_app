@@ -45,15 +45,9 @@ class _RadioPlayerState extends State<RadioPlayer> {
         // ),
       body: Container(
         decoration: const BoxDecoration(
-          gradient: LinearGradient(
-              begin: Alignment.topRight,
-              end: Alignment.bottomLeft,
-              stops: [0.1, 0.6, 0.9],
-              colors: [
-                Colors.black,
-                Color.fromARGB(179, 29, 26, 26),
-                Color.fromARGB(255, 56, 56, 56)
-              ]
+          image: DecorationImage(
+            image: AssetImage("assets/images/fondo.jpg"),
+            fit: BoxFit.cover,
             )
           ),
         child: Column(
@@ -92,7 +86,13 @@ class _RadioPlayerState extends State<RadioPlayer> {
             //     height: 250,
             // ),
             // Text("Nombre canción"),
-            // Text("Autor"),
+            Text("AIRE QUE RENUEVA TU MENTE", 
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.bold,
+                fontStyle: FontStyle.italic,
+              ),
+            ),
             Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -117,7 +117,7 @@ class _RadioPlayerState extends State<RadioPlayer> {
                 shape: const CircleBorder(),
                 padding: const EdgeInsets.all(24),
                 iconColor: Colors.white,
-                shadowColor: Colors.red,
+                shadowColor: Colors.blueGrey,
                 // backgroundColor: Colors.red
               ),
               onPressed: _togglePlayPause,
