@@ -6,7 +6,7 @@ import 'package:audioplayers/audioplayers.dart';
 const String wspUrl = "2267410216";
 const String facebookUrl = "https://m.facebook.com/FmMonteSanto/";
 const String websiteUrl = "https://www.google.com/";
-UrlSource radioUrl = UrlSource('https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=ice_30876_stream_632117567');
+UrlSource radioUrl = UrlSource('https://uk2freenew.listen2myradio.com/live.mp3?typeportmount=ice_30876_stream');
 
 class RadioPlayer extends StatefulWidget {
   RadioPlayer({super.key});
@@ -70,21 +70,12 @@ class _RadioPlayerState extends State<RadioPlayer> {
                       offset: Offset(2, 2)
                       )
                 ],
-
               ),
               child: ClipRRect(
                 borderRadius: BorderRadius.circular(20),
-                child: Image.network(
-                  "https://scontent.faep16-2.fna.fbcdn.net/v/t39.30808-6/241676832_237178688220147_8217776067505630344_n.png?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFvwuGI1W-ke64Fsi4lQyjbJNJcVMu28g8k0lxUy7byD80Id09fSVeJlyjVm8PdmAN4nU_JFLfDIHHAxvdl63AJ&_nc_ohc=YtHy83QgdasQ7kNvgG4g4K2&_nc_oc=AdhAdeCk6GCedoirGtXtIcQeQ5AmQlqa_iRjiIXuzx07r2xIwhjh9lqBAP4Q7wRYlko&_nc_zt=23&_nc_ht=scontent.faep16-2.fna&_nc_gid=AdGddGIYrWwk3u08GGJ1umR&oh=00_AYFwpL95P-y1h6dgRLLopok_sKm-a_7OaaaggWc3TTADGg&oe=67D92A0D",
-                  height: 250,
-                  fit: BoxFit.cover,
-                ),
+                child: Image.asset("assets/images/logo.png", height: 230, fit: BoxFit.cover,),
               ),
             ),
-            // Image.network(
-            //     "https://scontent.faep16-2.fna.fbcdn.net/v/t39.30808-6/241676832_237178688220147_8217776067505630344_n.png?_nc_cat=111&ccb=1-7&_nc_sid=6ee11a&_nc_eui2=AeFvwuGI1W-ke64Fsi4lQyjbJNJcVMu28g8k0lxUy7byD80Id09fSVeJlyjVm8PdmAN4nU_JFLfDIHHAxvdl63AJ&_nc_ohc=YtHy83QgdasQ7kNvgG4g4K2&_nc_oc=AdhAdeCk6GCedoirGtXtIcQeQ5AmQlqa_iRjiIXuzx07r2xIwhjh9lqBAP4Q7wRYlko&_nc_zt=23&_nc_ht=scontent.faep16-2.fna&_nc_gid=AdGddGIYrWwk3u08GGJ1umR&oh=00_AYFwpL95P-y1h6dgRLLopok_sKm-a_7OaaaggWc3TTADGg&oe=67D92A0D",
-            //     height: 250,
-            // ),
             // Text("Nombre canción"),
             Text("AIRE QUE RENUEVA TU MENTE", 
               style: TextStyle(
