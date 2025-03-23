@@ -2,7 +2,7 @@
     package="com.example.fm_ms_app">
     <uses-permission android:name="android.permission.INTERNET"/>
     <application
-        android:label="FM Monste Santo"
+        android:label="FM Monte Santo"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity
